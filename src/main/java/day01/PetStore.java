@@ -1,8 +1,10 @@
 package day01;
 
+import java.text.ParseException;
+
 public class PetStore {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
         Puppy p1 = new Puppy();
         p1.name = "拉不拉多";
         p1.birth = "2010/5/20";
