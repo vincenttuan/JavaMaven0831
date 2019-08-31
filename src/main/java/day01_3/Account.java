@@ -4,6 +4,14 @@ public class Account {
     private String name;
     private int balance;
     private int password = 1234;
+
+    public int getPassword() {
+        return password;
+    }
+
+    public void setPassword(int password) {
+        this.password = password;
+    }
     
     public void setName(String name) {
         this.name = name;
@@ -29,7 +37,6 @@ public class Account {
         }
     }
     
-
     public String getName() {
         return name;
     }
