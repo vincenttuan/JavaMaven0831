@@ -12,9 +12,10 @@ public class ATM {
         System.out.println("1.存款-------------------------");
         System.out.println("2.提款-------------------------");
         System.out.println("3.查詢-------------------------");
-        System.out.println("4.離開-------------------------");
+        System.out.println("4.修改密碼----------------------");
+        System.out.println("9.離開-------------------------");
         System.out.println("------------------------------");
-        System.out.printf("請選擇功能(1-4): ");
+        System.out.printf("請選擇功能(1-9): ");
         Scanner sc = new Scanner(System.in);
         int no = sc.nextInt();
         switch (no) {
@@ -30,7 +31,8 @@ public class ATM {
                 //System.out.println("你選擇查詢");
                 System.out.printf("%s 的帳戶餘額 $%d\n", account.getName(), account.getBalance(1234));
                 break;
-            case 4:
+                
+            case 9:
                 System.out.println("你選擇離開");
                 System.exit(0);
                 break;
