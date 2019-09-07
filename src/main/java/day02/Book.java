@@ -1,9 +1,9 @@
 package day02;
 
 public class Book {
-    String name; // 書名
+    public String name; // 書名
     private int price; // 價格
-    static String publisher = "Gotop"; // 出版商
+    public static String publisher = "Gotop"; // 出版商
 
     public int getPrice() {
         return price;
