@@ -32,5 +32,6 @@ public class ExamDemo {
                 .filter(e -> e.subject.equals("國文"))
                 .count();
         System.out.println(sum2 / count);
+        
     }
 }
