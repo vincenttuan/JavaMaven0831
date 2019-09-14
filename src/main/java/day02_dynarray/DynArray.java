@@ -12,10 +12,14 @@ public class DynArray {
         for(int i=0;i<scores.length;i++) {
             System.out.println(scores[i]);
         }
+        
         // 動態陣列 + Java 8
         List scores2 = Arrays.asList(100, 90, 80);
         scores2.forEach(x -> System.out.println(x));
         scores2.forEach(System.out::println); // x -> System.out.println(x)
         
+        // 動態陣列 + Java 8 + stream (cpu 運算)
+        List<Integer> scores3 = Arrays.asList(100, 30, 80, 50, 70);
+        scores3.stream().filter(x -> x >= 60).forEach(System.out::println);
     }
 }
