@@ -2,6 +2,7 @@ package day03_array;
 
 import java.util.Arrays;
 import java.util.Random;
+import java.util.function.IntBinaryOperator;
 import java.util.stream.IntStream;
 
 public class ArrayDemo4 {
@@ -32,7 +33,7 @@ public class ArrayDemo4 {
         System.out.println();
         
         // 平均
-        double avg = IntStream.range(1, scoresSorted.length-1).average().getAsDouble();
-        System.out.printf("平均: %.2f\n", avg);
+        int sum = IntStream.range(1, scoresSorted.length-1).reduce(0, (subtotal, i) -> subtotal + scoresSorted[i]);
+        System.out.printf("平均: %.2f\n", sum / 8.0);
     }
 }
