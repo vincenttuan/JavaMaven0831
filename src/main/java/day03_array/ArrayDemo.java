@@ -1,6 +1,9 @@
 package day03_array;
 
+import java.util.Arrays;
 import java.util.Random;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class ArrayDemo {
     public static void main(String[] args) {
@@ -23,5 +26,14 @@ public class ArrayDemo {
         }
         System.out.println();
         
+        // 顯示資料 3 (Java 8 Arrays.stream)
+        IntStream intstream = Arrays.stream(scores);
+        intstream.forEach(score -> System.out.printf("%d ", score));
+        System.out.println();
+        
+        // 顯示資料 4 (Java 8 Stream.of)
+        Stream<int[]> scream = Stream.of(scores);
+        scream.flatMapToInt(x -> Arrays.stream(x)).forEach(score -> System.out.printf("%d ", score));
+        System.out.println();
     }
 }
