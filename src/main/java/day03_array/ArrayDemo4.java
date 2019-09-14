@@ -34,6 +34,8 @@ public class ArrayDemo4 {
         
         // 平均
         int sum = IntStream.range(1, scoresSorted.length-1).reduce(0, (subtotal, i) -> subtotal + scoresSorted[i]);
-        System.out.printf("平均: %.2f\n", sum / 8.0);
+        long count = IntStream.range(1, scoresSorted.length-1).count();
+        double avg = (double)sum / count;
+        System.out.printf("平均: %.2f\n", avg);
     }
 }
