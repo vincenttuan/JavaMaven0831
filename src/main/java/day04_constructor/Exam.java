@@ -1,4 +1,4 @@
-package day04_oo;
+package day04_constructor;
 
 public class Exam {
     private int sno; // 學號
@@ -6,7 +6,16 @@ public class Exam {
     private int mathScore; // 數學分數
     private int englishScore; // 英文分數
 
-    // getter / setter 封裝
+    public Exam() {
+    }
+    
+    public Exam(int sno, int chineseScore, int mathScore, int englishScore) {
+        this.sno = sno;
+        this.chineseScore = chineseScore;
+        this.mathScore = mathScore;
+        this.englishScore = englishScore;
+    }
+    
     public int getSno() {
         return sno;
     }
@@ -43,7 +52,6 @@ public class Exam {
     public String toString() {
         return "Exam{" + "sno=" + sno + ", chineseScore=" + chineseScore + ", mathScore=" + mathScore + ", englishScore=" + englishScore + '}';
     }
-
     
     
     
