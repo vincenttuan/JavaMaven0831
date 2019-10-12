@@ -13,6 +13,7 @@ public class Zoo {
         
         Animal animal = getAnimal();
         printAnimal(animal);
+        
     }
     public static void printAnimal(Animal animal) {
         System.out.printf("%s有 %s 條腿 ", animal.getKind(), animal.getLegs());
