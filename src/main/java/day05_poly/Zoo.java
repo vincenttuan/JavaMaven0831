@@ -13,7 +13,10 @@ public class Zoo {
         
         Animal animal = getAnimal();
         printAnimal(animal);
-        
+        // 轉型
+        if(animal instanceof Ostrich) {
+            ((Ostrich)animal).spirit();
+        }
     }
     public static void printAnimal(Animal animal) {
         System.out.printf("%s有 %s 條腿 ", animal.getKind(), animal.getLegs());
