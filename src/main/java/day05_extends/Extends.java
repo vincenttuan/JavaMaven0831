@@ -17,6 +17,10 @@ public class Extends {
         Employee employee = new Employee();
         Manager manager = new Manager();
         Director director = new Director();
+        
+        Employee director1 = new Director();
+        Manager director2 = new Director();
+        Director director3 = new Director();
         // line 1
         /*
         Which two options fail to compile when placed at line n1 of the main method?
