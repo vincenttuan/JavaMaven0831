@@ -11,7 +11,10 @@ class Father {
 
 class Son extends Father {
     public Son() {
-        super(8);
+        System.out.println("Son");
+    }
+    public Son(int x) {
+        super(x);
         System.out.println("Son");
     }
 }
@@ -19,5 +22,6 @@ class Son extends Father {
 public class Constructor {
     public static void main(String[] args) {
         Son son = new Son();
+        Son son2 = new Son(8);
     }
 }
