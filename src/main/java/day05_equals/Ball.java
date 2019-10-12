@@ -26,10 +26,12 @@ public class Ball {
             return false;
         }
     }
-    
-    
-    
 
+    @Override
+    public int hashCode() {
+        return 7 * 11 + color.hashCode() + price;
+    }
+    
     public String getColor() {
         return color;
     }
