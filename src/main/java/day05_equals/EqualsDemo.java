@@ -6,7 +6,7 @@ public class EqualsDemo {
         String s2 = new String("Java");
         System.out.println(s1.equals(s2));
         Ball b1 = new Ball("白", 100);
-        Ball b2 = new Ball("白", 100);
+        Ball b2 = new Ball("白", 100); // b1
         System.out.println(b1);
         System.out.println(b2);
         System.out.println(b1.equals(b2));
