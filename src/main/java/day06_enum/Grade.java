@@ -5,7 +5,7 @@ public enum Grade {
     
     private int value;
  
-    private Grade(int value) {
+    private Grade(int value) { // 建構子 private 或不寫
         this.value = value;
     }
  
