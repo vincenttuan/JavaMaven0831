@@ -6,9 +6,15 @@ public class Shiba implements IDog {
     public Shiba(String kind) {
         this.kind = kind;
     }
-
+    
+    @Override
     public String getKind() {
         return kind;
+    }
+    
+    @Override
+    public void setKind(String kind) {
+        this.kind = kind;
     }
     
     @Override
@@ -20,5 +26,7 @@ public class Shiba implements IDog {
     public void eat() {
         System.out.println("狗罐頭");
     }
+
+    
     
 }

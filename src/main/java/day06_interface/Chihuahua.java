@@ -6,11 +6,13 @@ public class Chihuahua implements IDog {
     public Chihuahua(String kind) {
         this.kind = kind;
     }
-
+    
+    @Override
     public String getKind() {
         return kind;
     }
-
+    
+    @Override
     public void setKind(String kind) {
         this.kind = kind;
     }
