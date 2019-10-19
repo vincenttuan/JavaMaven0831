@@ -23,7 +23,8 @@ public class PetStore2 {
         Decoration max_Decoration = Stream.of(d1, d2, d3).max((a, b) -> (a.getAmount()*a.getPrice()) - (b.getAmount()*b.getPrice())).get();
         System.out.printf("max 成本 %d, 品名: %s\n", max_Decoration.getAmount()*max_Decoration.getPrice(), max_Decoration.getName());
         
-        
+        // 成本敘述統計分析
+        System.out.println(Stream.of(d1, d2, d3).mapToInt(d -> d.getAmount() * d.getPrice()).summaryStatistics());
     }
     
     public static void showtime(Decoration d) {
