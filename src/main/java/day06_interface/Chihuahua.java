@@ -1,6 +1,6 @@
 package day06_interface;
 
-public class Chihuahua implements IDog {
+public class Chihuahua extends ADog {
     private String kind;
 
     public Chihuahua(String kind) {
@@ -22,9 +22,4 @@ public class Chihuahua implements IDog {
         System.out.println("玩毛線");
     }
 
-    @Override
-    public void eat() {
-        System.out.println("狗罐頭");
-    }
-    
 }

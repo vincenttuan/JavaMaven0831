@@ -1,6 +1,6 @@
 package day06_interface;
 
-public class Shiba implements IDog {
+public class Shiba extends ADog {
     private String kind;
 
     public Shiba(String kind) {
@@ -24,9 +24,8 @@ public class Shiba implements IDog {
 
     @Override
     public void eat() {
-        System.out.println("狗罐頭");
+        System.out.println("西莎");
     }
-
     
     
 }

@@ -22,6 +22,7 @@ public class PetStore {
         System.out.printf("%s 有 %d 條腿\n", dog.getKind(), IDog.legs);
         dog.eat();
         dog.play();
+        dog.copyright();
     }
     
     
