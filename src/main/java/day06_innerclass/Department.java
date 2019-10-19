@@ -8,8 +8,10 @@ public class Department {
     }
     
     class Job {
+        private String name = "工作";
         public String getName() {
-            return name + "部門, 工作是寫程式";
+            String name = "寫程式";
+            return String.format("%s 部門的 %s 是 %s", Department.this.name, this.name, name);
         }
         
         public String getLanguage() {
