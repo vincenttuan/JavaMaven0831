@@ -1,7 +1,9 @@
 package day02_array;
 import day02.Book;
+import java.util.Arrays;
 
 public class BookArrayTest {
+   
     public static void main(String[] args) {
         Book b1 = new Book();
         Book b2 = new Book();
@@ -18,5 +20,6 @@ public class BookArrayTest {
         }
         System.out.println(total);
         System.out.println(total/books.length);
+       
     }
 }
