@@ -12,12 +12,14 @@ public class PetStore {
         showtime(shiba);
         showtime(chihuahua);
         showtime(eDog);
+        
         System.out.println("---------------------------");
         // Java 8
         //Stream.of(shiba, chihuahua).forEach(dog -> showtime(dog));
         Stream.of(shiba, chihuahua, eDog).forEach(PetStore::showtime);
         int sum = Stream.of(shiba, chihuahua, eDog).mapToInt(dog -> IDog.legs).sum();
         System.out.println(sum);
+        
     }
   
     public static void showtime(IDog dog) {
