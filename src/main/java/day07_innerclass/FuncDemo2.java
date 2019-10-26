@@ -3,8 +3,6 @@ package day07_innerclass;
 import java.util.Arrays;
 import java.util.DoubleSummaryStatistics;
 import java.util.List;
-import java.util.function.Predicate;
-import java.util.stream.DoubleStream;
 
 public class FuncDemo2 {
     private static List<Integer> scores;
