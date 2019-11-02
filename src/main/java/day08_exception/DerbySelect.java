@@ -3,6 +3,7 @@ package day08_exception;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -21,6 +22,12 @@ public class DerbySelect {
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);) {
             
+            // 欄位標題
+            ResultSetMetaData md = rs.getMetaData();
+            for(int i=1;i<=md.getColumnCount();i++) {
+                System.out.print(md.getColumnName(i) + "\t");
+            }
+            System.out.println("\n----------------------------------------------");
             // 列表資料
             while(rs.next()) {
                 int product_id = rs.getInt("product_id");
