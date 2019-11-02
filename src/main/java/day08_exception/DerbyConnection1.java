@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class DerbySelect1 {
+public class DerbyConnection1 {
     public static void main(String[] args) {
         String driverClass = "org.apache.derby.jdbc.ClientDriver";
         String url = "jdbc:derby://localhost:1527/MyDB";
@@ -13,7 +13,7 @@ public class DerbySelect1 {
         
         Connection conn = null;
         try {
-            // 載入Derby資料庫Client物件
+            // 載入Derby資料庫Client物件 for JDBC 3.0, JDBC 4.0 不用寫
             Class.forName(driverClass);
             // 建立連線
             conn = DriverManager.getConnection(url, username, password);
