@@ -1,11 +1,16 @@
 package day09_csv;
 
+import com.opencsv.bean.CsvBindByName;
 import java.util.Objects;
 
 public class User {
+    @CsvBindByName
     private String name;
+    @CsvBindByName
     private String email;
+    @CsvBindByName
     private String phone;
+    @CsvBindByName
     private String country;
 
     public User() {
