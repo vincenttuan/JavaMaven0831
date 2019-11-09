@@ -4,12 +4,29 @@ import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class ReadCSV {
     public static void main(String[] args) {
         String csvData = readCSVData("src/main/java/day09_csv/users.csv");
         System.out.println(csvData);
+        System.out.println("---------------------------------------------------");
+        // 切分資料
         
+        // Java 7 傳統寫法
+        /*
+        System.out.println(csvData.split("\n").length);
+        System.out.println(csvData.split("\n")[0].trim());
+        System.out.println(csvData.split("\n")[1].trim());
+        System.out.println(csvData.split("\n")[2].trim());
+        System.out.println(csvData.split("\n")[3].trim());
+        System.out.println(csvData.split("\n")[4].trim());
+        */
+        // Java 8
+        String[] csvRows = csvData.split("\r\n");
+        IntStream.range(1, csvRows.length)
+                .forEach(i -> System.out.println(csvRows[i]));
     }
     
     // 讀取 csv 的資料
