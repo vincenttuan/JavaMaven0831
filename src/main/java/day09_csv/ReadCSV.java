@@ -6,6 +6,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.function.Predicate;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -33,6 +34,14 @@ public class ReadCSV {
                     users.add(user);
                 });
         System.out.printf("集合筆數: %d\n集合內容: %s\n", users.size(), users);
+        System.out.println("---------------------------------------------------");
+        // 4.分析資料
+        Predicate<User> filterCountry = u -> u.getCountry().equals("United States");
+        Predicate<User> filterName = u -> u.getName().contains("Obama");
+        Predicate<User> filterTel = u -> u.getPhone().endsWith("9");
+        users.stream()
+                .filter(filterCountry)
+                .forEach(System.out::println);
         
     }
     
