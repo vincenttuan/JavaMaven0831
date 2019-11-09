@@ -63,6 +63,5 @@ public class ReadCSV {
             e.printStackTrace();
         }
         return csvData.toString();
-        
     }
 }
