@@ -21,6 +21,5 @@ public class ReadCSV_OpenCSV {
                 .filter(s -> s.getTotalProfit() >= 170_0000.0)
                 .forEach(System.out::println);
         
-        
     }
 }
