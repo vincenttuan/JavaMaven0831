@@ -2,6 +2,8 @@ package day10_map;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class MapDemo2 {
     public static void main(String[] args) {
@@ -13,8 +15,12 @@ public class MapDemo2 {
                 new Student("Mark",  "Java ME", "Chicage", 19),
                 new Student("Tom",   "Java EE", "Taipei", 25));
         
-        // 分類
+        // 分類(分群組)
+        Map map4Course = stds.stream().collect(Collectors.groupingBy(Student::getCourse)); // s -> s.getCourse()
+        System.out.println(map4Course);
         
+        Map map4City = stds.stream().collect(Collectors.groupingBy(Student::getCity)); 
+        System.out.println(map4City);
         
     }
 }
