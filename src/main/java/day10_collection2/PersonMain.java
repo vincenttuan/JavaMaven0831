@@ -14,10 +14,12 @@ public class PersonMain {
         System.out.println("\nphp Programmers: ");
         phpProgrammers.forEach(System.out::print);
         System.out.println();
+        
         // 1.Java 與 Php 各別薪資總和 ?
         int javaSalary = javaProgrammers.stream().mapToInt(x -> x.getSalary()).sum();
         int phpSalary = phpProgrammers.stream().mapToInt(x -> x.getSalary()).sum();
         System.out.printf("1.Java 與 Php 各別薪資總和? %,d, %,d, %s 多\n", javaSalary, phpSalary, (javaSalary > phpSalary)?"Java":"php");
+        
         // 2.女性在 Java 與 Php 各別平均薪資 ?
         Predicate<Person> filterFemale = x -> x.getGender().equals("female");
         ToIntFunction<Person> toSalary = x -> x.getSalary();
@@ -32,6 +34,21 @@ public class PersonMain {
                 .average()
                 .getAsDouble();
         System.out.printf("2.女性在 Java 的平均薪資: %.2f 在 Php 的平均薪資: %.2f, %s 高\n", javaFemaleSalaryAvg, phpFemaleSalaryAvg, (javaFemaleSalaryAvg > phpFemaleSalaryAvg)?"Java":"php");
+        
+        // 3. Java 男性與女性在 30 歲之後的薪資差距 ?
+        double male30Avg = javaProgrammers.stream()
+                .filter(x -> x.getGender().equals("male"))
+                .filter(x -> x.getAge() >= 30)
+                .mapToInt(x -> x.getSalary())
+                .average().getAsDouble();
+        double female30Avg = javaProgrammers.stream()
+                .filter(x -> x.getGender().equals("female"))
+                .filter(x -> x.getAge() >= 30)
+                .mapToInt(x -> x.getSalary())
+                .average().getAsDouble();
+        double maleFemaleInterval = male30Avg - female30Avg;        
+        System.out.printf("3.30 歲之後 Java 男性: %.2f 女性: %.2f 薪資差距: %.2f, %s 高\n", 
+                male30Avg, female30Avg, Math.abs(maleFemaleInterval), (maleFemaleInterval > 0)?"男性":"女性");
         
     }
 }
