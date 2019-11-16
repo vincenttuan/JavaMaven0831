@@ -23,8 +23,10 @@ public class PersonMainGroup {
         System.out.println(newList);
         
         // 分男女二組
-        Map map = newList.stream().collect(Collectors.groupingBy(Person::getGender)); 
+        Map<String, List<Person>> map = newList.stream().collect(Collectors.groupingBy(Person::getGender)); 
         System.out.println(map);
         
+        System.out.println("male: " + map.get("male").stream().mapToInt(x -> x.getSalary()).summaryStatistics());
+        System.out.println("female: " + map.get("female").stream().mapToInt(x -> x.getSalary()).summaryStatistics());
     }
 }
