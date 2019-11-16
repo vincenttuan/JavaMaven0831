@@ -50,5 +50,17 @@ public class PersonMain {
         System.out.printf("3.30 歲之後 Java 男性: %.2f 女性: %.2f 薪資差距: %.2f, %s 高\n", 
                 male30Avg, female30Avg, Math.abs(maleFemaleInterval), (maleFemaleInterval > 0)?"男性":"女性");
         
+        // 4.Java 薪資前三名與最高
+        System.out.println("Java 薪資前三名: ");
+        javaProgrammers.stream()
+                .sorted((x1, x2) -> x2.getSalary() - x1.getSalary())
+                .limit(3)
+                .forEach(System.out::println);
+        
+        Person maxSalaryJava = javaProgrammers.stream()
+                .max((x1, x2) -> x1.getSalary() - x2.getSalary())
+                .get();
+        System.out.printf("Java 薪資最高: %s\n", maxSalaryJava);
+        
     }
 }
