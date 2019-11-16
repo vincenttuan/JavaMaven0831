@@ -1,8 +1,10 @@
 package day10_collection;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
+import static java.util.stream.Collectors.toList;
 
 public class ListDemo {
     public static void main(String[] args) {
@@ -46,6 +48,17 @@ public class ListDemo {
                 .peek(x -> System.out.print("觀察:" + x + " ")) //觀察集合內容
                 .count();
         System.out.println("\ncount2: " + count2);
+        
+        // Java 8 走訪 + 分析 + 置入新集合
+        List<Integer> newList = list.stream().filter(x -> x % 2 == 0).collect(toList());
+        System.out.println(newList);
+        
+        // Java 8 走訪 + 排序
+        list.stream().sorted(Comparator.naturalOrder()).forEach(x -> System.out.print(x + " "));
+        System.out.println();
+        list.stream().sorted(Comparator.reverseOrder()).forEach(x -> System.out.print(x + " "));
+        System.out.println();
+        list.stream().sorted(Comparator.comparing(x -> x%2)).forEach(x -> System.out.print(x + " "));
         
     }
 }
