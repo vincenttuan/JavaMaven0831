@@ -62,5 +62,18 @@ public class PersonMain {
                 .get();
         System.out.printf("Java 薪資最高: %s\n", maxSalaryJava);
         
+        // 5.小明 男生 31 歲
+        Person javaPerson = javaProgrammers.stream()
+                .filter(x -> x.getAge() <= 31 && x.getGender().equals("male"))
+                .max((x1, x2) -> x1.getSalary() - x2.getSalary())
+                .get();
+        Person phpPerson = phpProgrammers.stream()
+                .filter(x -> x.getAge() <= 31 && x.getGender().equals("male"))
+                .max((x1, x2) -> x1.getSalary() - x2.getSalary())
+                .get();
+        System.out.println(javaPerson + "\n" + phpPerson);
+        System.out.printf("java $%d php $%d %s 薪資較優\n",
+                javaPerson.getSalary(), phpPerson.getSalary(), (javaPerson.getSalary()-phpPerson.getSalary()>0)?"java":"php");
+        
     }
 }
