@@ -28,7 +28,7 @@ public class PersonUtil {
             {
                 add(new Person("Jarrod", "Pace", "PHP programmer", "male", 34, 1550));
                 add(new Person("Clarette", "Cicely", "PHP programmer", "female", 23, 1200));
-                add(new Person("Victor", "Channing", "PHP programmer", "male", 32, 1600));
+                add(new Person("Victor", "Channing", "PHP programmer", "male", 29, 1600));
                 add(new Person("Tori", "Sheryl", "PHP programmer", "female", 21, 1000));
                 add(new Person("Osborne", "Shad", "PHP programmer", "male", 32, 1100));
                 add(new Person("Rosalind", "Layla", "PHP programmer", "female", 25, 1300));
