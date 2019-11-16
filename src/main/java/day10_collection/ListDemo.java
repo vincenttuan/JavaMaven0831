@@ -2,6 +2,7 @@ package day10_collection;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.IntSummaryStatistics;
 import java.util.Iterator;
 import java.util.List;
 import static java.util.stream.Collectors.toList;
@@ -59,6 +60,19 @@ public class ListDemo {
         list.stream().sorted(Comparator.reverseOrder()).forEach(x -> System.out.print(x + " "));
         System.out.println();
         list.stream().sorted(Comparator.comparing(x -> x%2)).forEach(x -> System.out.print(x + " "));
+        System.out.println();
+        
+        // Java 8 統計
+        // mapToInt(x -> x) 將 Stream (Integer) 轉成 IntStream (int)
+        // x -> x.intValue() 因為 unboxing 可省略寫成 x -> x
+        IntSummaryStatistics stat = list.stream().mapToInt(x -> x.intValue()).summaryStatistics();
+        System.out.println(stat);
+        
+        // Java 8 轉換 將每一個元素 x 10 倍
+        // mapToInt 會得到 IntStream
+        list.stream().mapToInt(x -> x * 10).forEach(x -> System.out.print(x + " "));
+        System.out.println();
+        
         
     }
 }
