@@ -1,6 +1,7 @@
 package day10_map;
 
 import java.util.Arrays;
+import static java.util.Comparator.comparingInt;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -19,8 +20,13 @@ public class MapDemo2 {
         Map map4Course = stds.stream().collect(Collectors.groupingBy(Student::getCourse)); // s -> s.getCourse()
         System.out.println(map4Course);
         
+        Map map4Course2 = stds.stream().collect(Collectors.groupingBy(Student::getCourse, Collectors.maxBy(comparingInt(Student::getAge))));
+        System.out.println(map4Course2);
+        
         Map map4City = stds.stream().collect(Collectors.groupingBy(Student::getCity)); 
         System.out.println(map4City);
+        
+        
         
     }
 }
