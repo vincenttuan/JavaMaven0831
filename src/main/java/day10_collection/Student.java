@@ -2,7 +2,7 @@ package day10_collection;
 
 import java.util.Objects;
 
-public class Student {
+public class Student implements Comparable<Student> {
     private String name;
     private int age;
 
@@ -62,5 +62,12 @@ public class Student {
     public String toString() {
         return "Student{" + "name=" + name + ", age=" + age + '}';
     }
+
+    @Override
+    public int compareTo(Student s) {
+        return age - s.age; // 由小至大
+        //return s.age - age // 由大至小
+    }
+
     
 }
