@@ -1,9 +1,12 @@
 package day10_collection2;
 
+import day10_map.Student;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Predicate;
 import java.util.function.ToIntFunction;
+import java.util.stream.Collectors;
 import static java.util.stream.Collectors.toList;
 
 public class PersonMainGroup {
@@ -20,7 +23,8 @@ public class PersonMainGroup {
         System.out.println(newList);
         
         // 分男女二組
-        
+        Map map = newList.stream().collect(Collectors.groupingBy(Person::getGender)); 
+        System.out.println(map);
         
     }
 }
