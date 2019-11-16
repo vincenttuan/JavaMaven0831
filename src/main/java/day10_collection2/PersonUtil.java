@@ -3,7 +3,7 @@ package day10_collection2;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PersonDB {
+public class PersonUtil {
 
     public static List<Person> getJavaProgrammers() {
         List<Person> javaProgrammers = new ArrayList<Person>() {
