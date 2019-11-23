@@ -1,6 +1,6 @@
-package day11_thread;
+package day11_thread2;
 
-public class Walking extends Thread {
+public class Walking implements Runnable {
 
     @Override
     public void run() {

@@ -1,6 +1,6 @@
-package day11_thread;
+package day11_thread2;
 
-public class Walking extends Thread {
+public class Running implements Runnable {
 
     @Override
     public void run() {
@@ -10,7 +10,7 @@ public class Walking extends Thread {
     public void job() {
         String tName = Thread.currentThread().getName();
         for(int i=1;i<=1000;i++) {
-            System.out.printf("%s 走了 %d 步\n", tName, i);
+            System.out.printf("%s 跑了 %d 步\n", tName, i);
         }
     }
     
