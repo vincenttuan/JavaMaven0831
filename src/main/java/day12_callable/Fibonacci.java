@@ -1,7 +1,7 @@
 package day12_callable;
 
 public class Fibonacci {
-    public long fib(int n) {
+    public long fib(long n) {
         if(n == 0 || n == 1) {
             return n;
         }

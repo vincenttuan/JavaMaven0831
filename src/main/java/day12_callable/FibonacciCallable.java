@@ -3,9 +3,9 @@ package day12_callable;
 import java.util.concurrent.Callable;
 
 public class FibonacciCallable implements Callable<Long> {
-    int n;
+    long n;
     
-    public FibonacciCallable(int n) {
+    public FibonacciCallable(long n) {
         this.n = n;
     }
 
