@@ -1,8 +1,8 @@
 package day12_wait_notify;
 
-public class Cookie {
+public class Fish {
     private boolean empty = true;
-    // 吃餅乾
+    // 吃魚
     public synchronized void eat(int n) {
         while(empty) {
             try {
@@ -10,12 +10,12 @@ public class Cookie {
             } catch (Exception e) {
             }
         }
-        System.out.printf("小白狗吃了第 %d 片餅乾\n", n);
+        System.out.printf("小花貓吃了第 %d 條魚\n", n);
         empty = true;
         notifyAll();
     }
     
-    // 放餅乾
+    // 放魚
     public synchronized void put(int n) {
         while(!empty) {
             try {
@@ -23,7 +23,7 @@ public class Cookie {
             } catch (Exception e) {
             }
         }
-        System.out.printf("男主人放了第 %d 片餅乾\n", n);
+        System.out.printf("女主人放了第 %d 條魚\n", n);
         empty = false;
         notifyAll();
     }
