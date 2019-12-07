@@ -24,7 +24,7 @@ public class CRUD {
     
     public List<Map> query() throws Exception {
         String sql = "SELECT id, symbol, cost, amount FROM APP.PORTFOLIO";
-        Statement stmt = conn.createStatement();
+        Statement stmt = conn.createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
         ResultSet rs = stmt.executeQuery(sql);
         List<Map> list = new ArrayList<>();
         while(rs.next()) {
@@ -38,4 +38,18 @@ public class CRUD {
         return list;
     }
     
+    public void create(String symbol, double cost, int amount) throws Exception {
+        String sql = "SELECT id, symbol, cost, amount FROM APP.PORTFOLIO";
+        Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        ResultSet rs = stmt.executeQuery(sql);
+        if(conn.isClosed()) {
+            return;
+        }
+        rs.moveToInsertRow();
+        rs.updateString("symbol", symbol);
+        rs.updateDouble("cost", cost);
+        rs.updateInt("amount", amount);
+        rs.insertRow();
+        System.out.println("新增成功");
+    }
 }
