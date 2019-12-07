@@ -52,4 +52,39 @@ public class CRUD {
         rs.insertRow();
         System.out.println("新增成功");
     }
+    
+    public void updateAmount(int id, int amount) throws Exception {
+        String sql = "SELECT id, amount FROM APP.PORTFOLIO Where id=" + id;
+        Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        ResultSet rs = stmt.executeQuery(sql);
+        if(conn.isClosed()) {
+            return;
+        }
+        
+        if(rs.last()) {
+            rs.updateInt("amount", amount);
+            rs.updateRow();
+            System.out.println("修改成功");
+        } else {
+            System.out.println("找不到資料修改");
+        }
+        
+    }
+    
+    public void delete(int id) throws Exception {
+        String sql = "SELECT * FROM APP.PORTFOLIO Where id=" + id;
+        Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        ResultSet rs = stmt.executeQuery(sql);
+        if(conn.isClosed()) {
+            return;
+        }
+        
+        if(rs.last()) {
+            rs.deleteRow();
+            System.out.println("刪除成功");
+        } else {
+            System.out.println("找不到資料刪除");
+        }
+        
+    }
 }
