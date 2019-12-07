@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.Random;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Executors;
+import java.util.concurrent.FutureTask;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
@@ -11,14 +12,26 @@ import java.util.stream.IntStream;
 
 public class SingleThreadScheduleFixedDelay {
     public static void main(String[] args) throws Exception {
+        ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
+        
         Runnable r = () -> {
-            System.out.println(new Random().nextInt(100));
+            Callable<Integer> c = () -> {
+                return new Random().nextInt(100);
+            };
+            FutureTask<Integer> task = new FutureTask<>(c);
+            new Thread(task).start();
+            try {
+                int result = task.get();
+                System.out.println(result);
+                if(isPrime(result)) {
+                    service.shutdown();
+                }
+            } catch (Exception e) {
+            }
         };
         
-        ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
         System.out.println("Main 開始排定工作時間: " + new Date());
         service.scheduleWithFixedDelay(r, 2, 1, TimeUnit.SECONDS);
-        //service.shutdown();
     }
     
     public static boolean isPrime(int number) {
