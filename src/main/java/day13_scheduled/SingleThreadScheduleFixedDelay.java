@@ -31,7 +31,8 @@ public class SingleThreadScheduleFixedDelay {
         };
         
         System.out.println("Main 開始排定工作時間: " + new Date());
-        service.scheduleWithFixedDelay(r, 2, 1, TimeUnit.SECONDS);
+        //service.scheduleWithFixedDelay(r, 2, 1, TimeUnit.SECONDS);
+        service.scheduleAtFixedRate(r, 2, 1, TimeUnit.SECONDS);
     }
     
     public static boolean isPrime(int number) {
