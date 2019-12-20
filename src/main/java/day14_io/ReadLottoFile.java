@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -40,24 +41,15 @@ public class ReadLottoFile {
             System.out.printf("max: %d min: %d\n", max, min);
             map.entrySet().stream().filter(x -> x.getValue() == max).forEach(System.out::println);
             map.entrySet().stream().filter(x -> x.getValue() == min).forEach(System.out::println);
-            System.out.println("------------");
             
+            System.out.println("----最有可能開獎的號碼------");
+            Map<String, Long> orderByValueMap = new LinkedHashMap<>();
             map.entrySet().stream()
-                    .mapToLong(x -> x.getValue())
-                    .sorted()
-                    .forEach(System.out::print);
-            System.out.println();
+                    .sorted(Map.Entry.comparingByValue())
+                    .forEachOrdered(x -> orderByValueMap.put(x.getKey(), x.getValue()));
             
-            for(Object value : map.entrySet().stream()
-                                             .mapToLong(x -> x.getValue())
-                                             .sorted()
-                                             .toArray()) {
-                map.entrySet().stream().filter(x -> x.getValue() == value).forEach(System.out::println);
-            }
-                
+            System.out.println(orderByValueMap);
             
-            
-        } catch (Exception e) {
         }
     }
 
