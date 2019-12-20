@@ -38,7 +38,7 @@ public class WriterLottoFile {
     public static Set<String> getLotto() {
         Set<String> lotto = new TreeSet<>();
         while (lotto.size() < 5) {
-            int n = ThreadLocalRandom.current().nextInt(39 + 1);
+            int n = ThreadLocalRandom.current().nextInt(39) + 1;
             lotto.add(String.format("%02d", n));
         }
         return lotto;
