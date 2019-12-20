@@ -23,7 +23,7 @@ public class WriterLottoFile {
             IntStream.rangeClosed(1, 100).forEach(i -> {
                 try {
                     System.out.println("進度: " + i);
-                    bw.write(getLotto().toString());
+                    bw.write(getLotto().toString().replace("[", "").replace("]", "").replace(",", ""));
                     bw.newLine();
                     bw.flush();
                     TimeUnit.MILLISECONDS.sleep(100);
