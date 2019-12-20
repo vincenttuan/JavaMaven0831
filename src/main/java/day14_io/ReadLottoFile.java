@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -32,6 +33,13 @@ public class ReadLottoFile {
             Map<String, Long> map = Arrays.stream(numArray)
                     .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
             System.out.println(map);
+            
+            long max = map.entrySet().stream().mapToLong(x -> x.getValue()).max().getAsLong();
+            long min = map.entrySet().stream().mapToLong(x -> x.getValue()).min().getAsLong();
+            System.out.printf("max: %d min: %d\n", max, min);
+            map.entrySet().stream().filter(x -> x.getValue() == max).forEach(System.out::println);
+            map.entrySet().stream().filter(x -> x.getValue() == min).forEach(System.out::println);
+            
         } catch (Exception e) {
         }
     }
