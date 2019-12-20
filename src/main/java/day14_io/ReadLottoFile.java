@@ -16,6 +16,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import static java.util.stream.Collectors.toList;
+import static java.util.stream.Collectors.toMap;
 import java.util.stream.IntStream;
 
 public class ReadLottoFile {
@@ -39,6 +40,21 @@ public class ReadLottoFile {
             System.out.printf("max: %d min: %d\n", max, min);
             map.entrySet().stream().filter(x -> x.getValue() == max).forEach(System.out::println);
             map.entrySet().stream().filter(x -> x.getValue() == min).forEach(System.out::println);
+            System.out.println("------------");
+            
+            map.entrySet().stream()
+                    .mapToLong(x -> x.getValue())
+                    .sorted()
+                    .forEach(System.out::print);
+            System.out.println();
+            
+            for(Object value : map.entrySet().stream()
+                                             .mapToLong(x -> x.getValue())
+                                             .sorted()
+                                             .toArray()) {
+                map.entrySet().stream().filter(x -> x.getValue() == value).forEach(System.out::println);
+            }
+                
             
             
         } catch (Exception e) {
