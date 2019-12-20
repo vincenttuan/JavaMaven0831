@@ -40,6 +40,7 @@ public class ReadLottoFile {
             map.entrySet().stream().filter(x -> x.getValue() == max).forEach(System.out::println);
             map.entrySet().stream().filter(x -> x.getValue() == min).forEach(System.out::println);
             
+            
         } catch (Exception e) {
         }
     }
